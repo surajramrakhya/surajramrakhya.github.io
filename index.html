@@ -372,26 +372,33 @@
         <div class="row">
           <div class="col s3">
             <!-- Image 1 -->
-            <img src="/assets/img/interior.jpg" alt="Image 1">
+            <div class="image-container">
+              <img src="path_to_image1.jpg" alt="Image 1">
+            </div>
           </div>
           <div class="col s3">
             <!-- Image 2 -->
-            <img src="/assets/img/interior2.jpg" alt="Image 2">
+            <div class="image-container">
+              <img src="path_to_image2.jpg" alt="Image 2">
+            </div>
           </div>
           <div class="col s3">
             <!-- Image 3 -->
-            <img src="/assets/img/interior3.jpg" alt="Image 3">
+            <div class="image-container">
+              <img src="path_to_image3.jpg" alt="Image 3">
+            </div>
           </div>
         </div>
-        <!-- Add more rows with four images each if needed -->
       </div>
     </section>
+    
     <style>
       .image-container {
-        margin-bottom: 5px;
+        margin-bottom: 20px;
+        text-align: center; /* Center the images horizontally within the column */
       }
       .image-container img {
-        width: 2%;
+        width: 5%;
       }
     </style>
 
