@@ -365,79 +365,11 @@
         </div>
 	</section>
 
-   <!-- Fourth Section: Projects -->
-   <section id="projects" class="section scrollspy">
-     <h3 class="page-title white-text teal">Projects</h3>
-     <div class="container">
-       <div class="image-container" onclick="openImage(this)">
-         <img src="/assets/img/interior.jpg" alt="Image">
-       </div>
-       <div class="image-container" onclick="openImage(this)">
-         <img src="/assets/img/interior2.jpg" alt="Image">
-       </div>
-       <div class="image-container" onclick="openImage(this)">
-         <img src="/assets/img/interior3.jpg" alt="Image">
-       </div>
-       <div class="image-container" onclick="openImage(this)">
-         <img src="/assets/img/interior4.jpg" alt="Image">
-       </div>
-     </div>
-   </section>
-   
-   <div class="overlay" onclick="closeImage()">
-     <div class="image-container">
-       <img class="enlarged-image" id="enlargedImg" src="" alt="Enlarged Image">
-     </div>
-   </div>
-   
-   <style>
-     /* Overlay styles */
-     .overlay {
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background-color: rgba(0, 0, 0, 0.8);
-       display: none;
-       justify-content: center;
-       align-items: center;
-     }
-   
-     /* Image container styles */
-     .image-container {
-       position: relative;
-       cursor: pointer;
-       display: inline-block;
-       width: 25%;
-       padding: 10px;
-       box-sizing: border-box;
-     }
-   
-     /* Enlarged image styles */
-     .enlarged-image {
-       width: 100%;
-       height: auto;
-       box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-     }
-   </style>
-   
-   <script>
-     function openImage(element) {
-       var overlay = document.querySelector('.overlay');
-       var enlargedImg = document.getElementById('enlargedImg');
-       var originalImg = element.querySelector('img');
-   
-       enlargedImg.src = originalImg.src;
-       overlay.style.display = 'flex';
-     }
-   
-     function closeImage() {
-       var overlay = document.querySelector('.overlay');
-       overlay.style.display = 'none';
-     }
-   </script>
-
+    <!-- Fourth Section: Projects -->
+    <section id="projects" class="section scrollspy">
+      <h3 class="page-title white-text teal">Projects</h3>
+      <div class="container">
+        <div class="row">
 
           <!-- ************* -->
         </div>
