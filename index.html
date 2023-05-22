@@ -369,72 +369,77 @@
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
-        <div class="row">
-          <div class="carousel">
-            <div class="carousel-item">
-              <!-- Architectural Visualization -->
-              <div>
-                <h4 class="section-heading">Architectural Visualization</h4>
-                <div class="image-container">
-                  <img src="/assets/img/archviz/interior.png" alt="Image 1">
-                </div>
-                <div class="image-container">
-                  <img src="/assets/img/archviz/interior2.png" alt="Image 2">
-                </div>
-                <div class="image-container">
-                  <img src="/assets/img/archviz/interior3.png" alt="Image 3">
-                </div>
-                <div class="image-container">
-                  <img src="/assets/img/archviz/interior4.png" alt="Image 4">
-                </div>
-              </div>
+        <!-- Architectural Visualization Carousel -->
+        <div id="archviz-carousel" class="carousel">
+          <div class="carousel-item">
+            <h4 class="section-heading">Architectural Visualization</h4>
+            <div class="image-container">
+              <img src="/assets/img/archviz/interior.png" alt="Image 1">
             </div>
-            <div class="carousel-item">
-              <!-- Product Visualization -->
-              <div>
-                <h4 class="section-heading">Product Visualization</h4>
-                <div class="image-container">
-                  <img src="/assets/img/product/product1.png" alt="Image 5">
-                </div>
-                <div class="image-container">
-                  <img src="/assets/img/product/product2.png" alt="Image 6">
-                </div>
-                <div class="image-container">
-                  <img src="/assets/img/product/product3.png" alt="Image 7">
-                </div>
-                <div class="video-container">
-                  <video controls>
-                    <source src="/assets/videos/product/wine.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
+            <div class="image-container">
+              <img src="/assets/img/archviz/interior2.png" alt="Image 2">
             </div>
-            <div class="carousel-item">
-              <!-- 3D Environment -->
-              <div>
-                <h4 class="section-heading">3D Environment</h4>
-                <div class="image-container">
-                  <img src="/assets/img/env/environment1.jpg" alt="Image 8">
-                </div>
-                <div class="video-container">
-                  <video controls>
-                    <source src="/assets/videos/env/env1.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="image-container">
-                  <img src="/assets/img/env/environment2.jpg" alt="Image 9">
-                </div>
-                <div class="video-container">
-                  <video controls>
-                    <source src="/assets/videos/env/env2.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
+            <div class="image-container">
+              <img src="/assets/img/archviz/interior3.png" alt="Image 3">
+            </div>
+            <div class="image-container">
+              <img src="/assets/img/archviz/interior4.png" alt="Image 4">
             </div>
           </div>
-          <a class="carousel-prev" onclick="carouselSlide(-1)">&#10094;</a>
-          <a class="carousel-next" onclick="carouselSlide(1)">&#10095;</a>
         </div>
+    
+        <!-- Product Visualization Carousel -->
+        <div id="product-carousel" class="carousel">
+          <div class="carousel-item">
+            <h4 class="section-heading">Product Visualization</h4>
+            <div class="image-container">
+              <img src="/assets/img/product/product1.png" alt="Image 5">
+            </div>
+            <div class="image-container">
+              <img src="/assets/img/product/product2.png" alt="Image 6">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="video-container">
+              <video controls>
+                <source src="/assets/videos/product/wine.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="image-container">
+              <img src="/assets/img/product/product3.png" alt="Image 7">
+            </div>
+          </div>
+        </div>
+    
+        <!-- 3D Environment Carousel -->
+        <div id="env-carousel" class="carousel">
+          <div class="carousel-item">
+            <h4 class="section-heading">3D Environment</h4>
+            <div class="image-container">
+              <img src="/assets/img/env/environment1.jpg" alt="Image 8">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="video-container">
+              <video controls>
+                <source src="/assets/videos/env/env1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="image-container">
+              <img src="/assets/img/env/environment2.jpg" alt="Image 9">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="video-container">
+              <video controls>
+                <source src="/assets/videos/env/env2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+    
+        <a class="carousel-prev" onclick="carouselSlide(-1)">&#10094;</a>
+        <a class="carousel-next" onclick="carouselSlide(1)">&#10095;</a>
       </div>
     </section>
     
@@ -457,57 +462,21 @@
       .carousel-item {
         display: none;
       }
-      .carousel-item:first-child {
-        display: block;
-      }
-      .carousel-prev,
-      .carousel-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        text-align: center;
-        line-height: 40px;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 2;
-      }
-      .carousel-prev {
-        left: 10px;
-      }
-      .carousel-next {
-        right: 10px;
-      }
     </style>
     
     <script>
-      var currentSlide = 0;
-      var carouselItems = document.getElementsByClassName("carousel-item");
+      function carouselSlide(index) {
+        var carousels = document.getElementsByClassName("carousel");
+        for (var i = 0; i < carousels.length; i++) {
+          var carousel = carousels[i];
+          var carouselItems = carousel.getElementsByClassName("carousel-item");
+          var currentSlide = Array.from(carouselItems).findIndex(item => item.style.display !== "none");
+          var nextSlide = (currentSlide + index + carouselItems.length) % carouselItems.length;
     
-      function showSlide(slideIndex) {
-        if (slideIndex >= carouselItems.length) {
-          slideIndex = 0;
-        } else if (slideIndex < 0) {
-          slideIndex = carouselItems.length - 1;
+          carouselItems[currentSlide].style.display = "none";
+          carouselItems[nextSlide].style.display = "block";
         }
-    
-        for (var i = 0; i < carouselItems.length; i++) {
-          carouselItems[i].style.display = "none";
-        }
-    
-        carouselItems[slideIndex].style.display = "block";
-        currentSlide = slideIndex;
       }
-    
-      function carouselSlide(n) {
-        showSlide(currentSlide + n);
-      }
-    
-      // Show the first slide initially
-      showSlide(0);
     </script>
 
 
