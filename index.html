@@ -365,124 +365,231 @@
         </div>
 	</section>
 
-     <!-- Fourth Section: Projects -->
-     <section id="projects" class="section scrollspy">
-       <h3 class="page-title white-text teal">Projects</h3>
-       <div class="container">
-         <div class="row">
-           <div class="carousel">
-             <!-- Architectural Visualization -->
-             <div class="carousel-item">
-               <div class="image-container">
-                 <img src="/assets/img/archviz/interior.png" alt="Architectural Visualization">
-               </div>
-               <div class="image-container">
-                 <img src="/assets/img/archviz/interior2.png" alt="Architectural Visualization">
-               </div>
-             </div>
-             <!-- Product Visualization -->
-             <div class="carousel-item">
-               <div class="image-container">
-                 <img src="/assets/img/product/product1.png" alt="Product Visualization">
-               </div>
-               <div class="video-container">
-                 <video src="/assets/videos/product/wine.mp4" controls muted></video>
-               </div>
-             </div>
-             <!-- 3D Environment -->
-             <div class="carousel-item">
-               <div class="image-container">
-                 <img src="/assets/img/env/environment1.png" alt="3D Environment">
-               </div>
-               <div class="video-container">
-                 <video src="/assets/videos/env/env1.mp4" controls muted></video>
-               </div>
-             </div>
-           </div>
-           <a class="carousel-prev" onclick="carouselSlide(-1)">&#10094;</a>
-           <a class="carousel-next" onclick="carouselSlide(1)">&#10095;</a>
-         </div>
-       </section>
-       
-       <style>
-         .image-container {
-           margin-bottom: 20px;
-           text-align: center;
-         }
-         
-         .image-container img {
-           width: 100%;
-         }
-         
-         .video-container {
-           width: 100%;
-           height: 100%;
-         }
-         
-         .carousel {
-           position: relative;
-           overflow: hidden;
-         }
-         
-         .carousel-item {
-           display: none;
-         }
-         
-         .carousel-item:first-child {
-           display: block;
-         }
-         
-         .carousel-prev,
-         .carousel-next {
-           position: absolute;
-           top: 50%;
-           transform: translateY(-50%);
-           width: 40px;
-           height: 40px;
-           background-color: rgba(0, 0, 0, 0.5);
-           color: #fff;
-           text-align: center;
-           line-height: 40px;
-           font-size: 24px;
-           cursor: pointer;
-           z-index: 2;
-         }
-         
-         .carousel-prev {
-           left: 10px;
-         }
-         
-         .carousel-next {
-           right: 10px;
-         }
-       </style>
-       
-       <script>
-         var currentSlide = 0;
-         var carouselItems = document.getElementsByClassName("carousel-item");
-       
-         function showSlide(slideIndex) {
-           if (slideIndex >= carouselItems.length) {
-             slideIndex = 0;
-           } else if (slideIndex < 0) {
-             slideIndex = carouselItems.length - 1;
-           }
-       
-           for (var i = 0; i < carouselItems.length; i++) {
-             carouselItems[i].style.display = "none";
-           }
-       
-           carouselItems[slideIndex].style.display = "block";
-           currentSlide = slideIndex;
-         }
-       
-         function carouselSlide(n) {
-           showSlide(currentSlide + n);
-         }
-       
-         // Show the first slide initially
-         showSlide(0);
-       </script>
+    <!-- Fourth Section: Projects -->
+    <section id="projects" class="section scrollspy">
+      <h3 class="page-title white-text teal">Projects</h3>
+      <div class="container">
+        <div class="row">
+          <div class="carousel">
+            <!-- Architectural Visualization -->
+            <div class="carousel-item active">
+              <div class="image-container">
+                <img src="/assets/img/archviz/interior.png" alt="Architectural Visualization">
+              </div>
+              <div class="image-container">
+                <img src="/assets/img/archviz/interior2.png" alt="Architectural Visualization">
+              </div>
+            </div>
+            <!-- Product Visualization -->
+            <div class="carousel-item">
+              <div class="image-container">
+                <img src="/assets/img/product/product1.png" alt="Product Visualization">
+              </div>
+              <div class="video-container">
+                <video src="/assets/video/wine.mp4" controls muted></video>
+              </div>
+            </div>
+            <!-- 3D Environment -->
+            <div class="carousel-item">
+              <div class="image-container">
+                <img src="/assets/img/env/environment1.png" alt="3D Environment">
+              </div>
+              <div class="video-container">
+                <video src="/assets/video/env/env1.mp4" controls muted></video>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-prev" onclick="carouselSlide(-1)">&#10094;</a>
+          <a class="carousel-next" onclick="carouselSlide(1)">&#10095;</a>
+        </div>
+        <div class="row">
+          <div class="sub-carousel">
+            <!-- Architectural Visualization -->
+            <div class="sub-carousel-item active">
+              <h4>Architectural Visualization</h4>
+              <img src="/assets/img/interior.jpeg" alt="Architectural Visualization">
+              <a href="#">Previous</a>
+              <a href="#">Next</a>
+            </div>
+            <!-- Product Visualization -->
+            <div class="sub-carousel-item">
+              <h4>Product Visualization</h4>
+              <img src="/assets/img/product.jpeg" alt="Product Visualization">
+              <a href="#">Previous</a>
+              <a href="#">Next</a>
+            </div>
+            <!-- 3D Environment -->
+            <div class="sub-carousel-item">
+              <h4>3D Environment</h4>
+              <img src="/assets/img/environment.jpeg" alt="3D Environment">
+              <a href="#">Previous</a>
+              <a href="#">Next</a>
+            </div>
+          </div>
+          <a class="sub-carousel-prev" onclick="subCarouselSlide(-1)">&#10094;</a>
+          <a class="sub-carousel-next" onclick="subCarouselSlide(1)">&#10095;</a>
+        </div>
+      </div>
+    </section>
+    
+    <style>
+      .image-container {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    
+      .image-container img {
+        width: 100%;
+        max-width: 200px;
+      }
+    
+      .video-container {
+        width: 100%;
+        height: 100%;
+      }
+    
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        justify-content: space-between;
+        width: 100%;
+      }
+    
+      .carousel-item {
+        display: none;
+        width: 50%;
+      }
+    
+      .carousel-item:first-child {
+        display: block;
+      }
+    
+      .carousel-prev,
+      .carousel-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 2;
+      }
+    
+      .carousel-prev {
+        left: 0;
+      }
+    
+      .carousel-next {
+        right: 0;
+      }
+    
+      /* Sub-carousel */
+      .sub-carousel {
+        margin-top: 20px;
+      }
+    
+      .sub-carousel-item {
+        display: none;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+    
+      .sub-carousel-item h4 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+    
+      .sub-carousel-item img {
+        width: 100%;
+      }
+    
+      .sub-carousel-item a {
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    
+      .sub-carousel-prev,
+      .sub-carousel-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 2;
+      }
+    
+      .sub-carousel-prev {
+        left: 0;
+      }
+    
+      .sub-carousel-next {
+        right: 0;
+      }
+    </style>
+    
+    <script>
+      function carouselSlide(n) {
+        var currentSlide = document.querySelector(".carousel-item.active");
+        var nextSlide = currentSlide.nextElementSibling;
+    
+        if (nextSlide === null) {
+          nextSlide = document.querySelector(".carousel-item:first-child");
+        }
+    
+        nextSlide.classList.add("active");
+        currentSlide.classList.remove("active");
+      }
+    
+      function subCarouselSlide(n) {
+        var currentSlide = document.querySelector(".sub-carousel-item.active");
+        var nextSlide = currentSlide.nextElementSibling;
+    
+        if (nextSlide === null) {
+          nextSlide = document.querySelector(".sub-carousel-item:first-child");
+        }
+    
+        nextSlide.classList.add("active");
+        currentSlide.classList.remove("active");
+      }
+    </script>
+
+    <!-- Fifth Section: Skills -->
+    <section id="skills" class="section scrollspy">
+      <h3 class="page-title white-text teal">Skills</h3>
+      <div class="container">
+        <!-- 3D Softwares -->
+        <div class="card">
+          <div class="card-content">
+            <h4 class="brown-text light">3D Softwares</h4>
+            <div class="row text-center">
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/blender_icon_300x300.png" class="responsive-img" />Blender
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/3ds_max_icon_300x300.jpeg" class="responsive-img" />3ds Max
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/revit_icon_300x300.png" class="responsive-img" />Revit Architecture
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/SketchUp-Logo.jpg" class="responsive-img" />Sketchup
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="card">
           <div class="card-content">
