@@ -396,49 +396,35 @@
               </div>
             </div>
           </div>
-          <a class="carousel-prev">&#10094;</a>
-          <a class="carousel-next">&#10095;</a>
+          <a class="carousel-prev" onclick="carouselSlide(-1)">&#10094;</a>
+          <a class="carousel-next" onclick="carouselSlide(1)">&#10095;</a>
         </div>
       </div>
     </section>
-    
-    <!-- Include jQuery library -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Include Slick carousel library -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    
-    <script>
-      $(document).ready(function() {
-        $('.carousel').slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          prevArrow: $('.carousel-prev'),
-          nextArrow: $('.carousel-next')
-        });
-      });
-    </script>
-    
     
     <style>
       .image-container {
         margin-bottom: 20px;
         text-align: center;
       }
+      
       .image-container img {
         width: 100%;
       }
+      
       .carousel {
         position: relative;
         overflow: hidden;
       }
+      
       .carousel-item {
         display: none;
       }
+      
       .carousel-item:first-child {
         display: block;
       }
+      
       .carousel-prev,
       .carousel-next {
         position: absolute;
@@ -454,13 +440,42 @@
         cursor: pointer;
         z-index: 2;
       }
+      
       .carousel-prev {
         left: 10px;
       }
+      
       .carousel-next {
         right: 10px;
       }
     </style>
+    
+    <script>
+      var currentSlide = 0;
+      var carouselItems = document.getElementsByClassName("carousel-item");
+    
+      function showSlide(slideIndex) {
+        if (slideIndex >= carouselItems.length) {
+          slideIndex = 0;
+        } else if (slideIndex < 0) {
+          slideIndex = carouselItems.length - 1;
+        }
+    
+        for (var i = 0; i < carouselItems.length; i++) {
+          carouselItems[i].style.display = "none";
+        }
+    
+        carouselItems[slideIndex].style.display = "block";
+        currentSlide = slideIndex;
+      }
+    
+      function carouselSlide(n) {
+        showSlide(currentSlide + n);
+      }
+    
+      // Show the first slide initially
+      showSlide(0);
+    </script>
 
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">
