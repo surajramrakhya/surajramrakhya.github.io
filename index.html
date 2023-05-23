@@ -542,6 +542,20 @@
             environmentIndex = handleCarouselSlide(carouselItems, currentIndex);
             break;
         }
+    
+        var prevButton = document.querySelector('.' + carouselId + ' + .carousel-prev');
+        var nextButton = document.querySelector('.' + carouselId + ' + .carousel-next');
+    
+        if (prevButton && nextButton) {
+          prevButton.style.display = 'block';
+          nextButton.style.display = 'block';
+    
+          if (currentIndex === 0) {
+            prevButton.style.display = 'none';
+          } else if (currentIndex === carouselItems.length - 1) {
+            nextButton.style.display = 'none';
+          }
+        }
       }
       
       function handleCarouselSlide(carouselItems, currentIndex) {
