@@ -553,16 +553,16 @@
     
           if (currentIndex === 0) {
             prevButton.style.display = 'none';
-          } else if (currentIndex === carouselItems.length - 1) {
+          } else if (currentIndex === carouselItems.length) {
             nextButton.style.display = 'none';
-            currentIndex = 0; // Reset to first image
+            currentIndex = 0; // Reset the index to show the first image again
           }
         }
       }
     
       function handleCarouselSlide(carouselItems, currentIndex) {
         if (currentIndex >= carouselItems.length) {
-          currentIndex = 0; // Reset to first image
+          currentIndex = 0;
         } else if (currentIndex < 0) {
           currentIndex = carouselItems.length - 1;
         }
