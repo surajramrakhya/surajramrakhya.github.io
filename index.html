@@ -494,11 +494,14 @@
         display: block;
       }
     
+      .carousel-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    
       .carousel-prev,
       .carousel-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
         width: 40px;
         height: 40px;
         background-color: rgba(0, 0, 0, 0.5);
@@ -507,20 +510,7 @@
         line-height: 40px;
         font-size: 24px;
         cursor: pointer;
-        z-index: 2;
-      }
-    
-      .carousel-prev {
-        left: 10px;
-      }
-    
-      .carousel-next {
-        right: 10px;
-      }
-    
-      .carousel-buttons {
-        margin-top: 10px;
-        text-align: center;
+        margin: 0 5px;
       }
     </style>
     
@@ -581,7 +571,6 @@
         }
     
         carouselItems[currentIndex].style.display = 'block';
-    
         return currentIndex;
       }
     </script>
