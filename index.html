@@ -372,7 +372,7 @@
         <div class="row">
           <div class="col s12">
             <h4>Architectural Visualization</h4>
-            <div class="carousel">
+            <div class="carousel architectural-carousel">
               <!-- Image 1 -->
               <div class="carousel-item">
                 <div class="image-container">
@@ -398,14 +398,14 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-prev" onclick="carouselSlide('architectural', -1)">&#10094;</a>
-            <a class="carousel-next" onclick="carouselSlide('architectural', 1)">&#10095;</a>
+            <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
+            <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
           </div>
         </div>
         <div class="row">
           <div class="col s12">
             <h4>Product Visualization</h4>
-            <div class="carousel">
+            <div class="carousel product-carousel">
               <!-- Image 1 -->
               <div class="carousel-item">
                 <div class="image-container">
@@ -425,14 +425,14 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-prev" onclick="carouselSlide('product', -1)">&#10094;</a>
-            <a class="carousel-next" onclick="carouselSlide('product', 1)">&#10095;</a>
+            <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
+            <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
           </div>
         </div>
         <div class="row">
           <div class="col s12">
             <h4>3D Environment</h4>
-            <div class="carousel">
+            <div class="carousel environment-carousel">
               <!-- Image 1 -->
               <div class="carousel-item">
                 <div class="image-container">
@@ -458,8 +458,8 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-prev" onclick="carouselSlide('environment', -1)">&#10094;</a>
-            <a class="carousel-next" onclick="carouselSlide('environment', 1)">&#10095;</a>
+            <a class="carousel-prev" onclick="carouselSlide('environment-carousel', -1)">&#10094;</a>
+            <a class="carousel-next" onclick="carouselSlide('environment-carousel', 1)">&#10095;</a>
           </div>
         </div>
       </div>
@@ -518,57 +518,46 @@
       var productIndex = 0;
       var environmentIndex = 0;
     
-      carouselSlide('architectural', 0); // Show first image for architectural visualization by default
-      carouselSlide('product', 0); // Show first image for product visualization by default
-      carouselSlide('environment', 0); // Show first image for 3D environment by default
+      carouselSlide('architectural-carousel', 0); // Show first image for architectural visualization by default
+      carouselSlide('product-carousel', 0); // Show first image for product visualization by default
+      carouselSlide('environment-carousel', 0); // Show first image for 3D environment by default
       
-      function carouselSlide(category, n) {
-        var carouselItems = document.getElementsByClassName("carousel-item");
+      function carouselSlide(carouselId, n) {
+        var carouselItems = document.querySelectorAll('.' + carouselId + ' .carousel-item');
         var currentIndex;
-      
-        switch (category) {
-          case 'architectural':
+    
+        switch (carouselId) {
+          case 'architectural-carousel':
             currentIndex = architecturalIndex + n;
-      
-            if (currentIndex < 0) {
-              currentIndex = carouselItems.length - 1;
-            } else if (currentIndex >= carouselItems.length) {
-              currentIndex = 0;
-            }
-      
-            architecturalIndex = currentIndex;
+            architecturalIndex = handleCarouselSlide(carouselItems, currentIndex);
             break;
-      
-          case 'product':
+    
+          case 'product-carousel':
             currentIndex = productIndex + n;
-      
-            if (currentIndex < 0) {
-              currentIndex = carouselItems.length - 1;
-            } else if (currentIndex >= carouselItems.length) {
-              currentIndex = 0;
-            }
-      
-            productIndex = currentIndex;
+            productIndex = handleCarouselSlide(carouselItems, currentIndex);
             break;
-      
-          case 'environment':
+    
+          case 'environment-carousel':
             currentIndex = environmentIndex + n;
-      
-            if (currentIndex < 0) {
-              currentIndex = carouselItems.length - 1;
-            } else if (currentIndex >= carouselItems.length) {
-              currentIndex = 0;
-            }
-      
-            environmentIndex = currentIndex;
+            environmentIndex = handleCarouselSlide(carouselItems, currentIndex);
             break;
+        }
+      }
+      
+      function handleCarouselSlide(carouselItems, currentIndex) {
+        if (currentIndex < 0) {
+          currentIndex = carouselItems.length - 1;
+        } else if (currentIndex >= carouselItems.length) {
+          currentIndex = 0;
         }
       
         for (var i = 0; i < carouselItems.length; i++) {
-          carouselItems[i].style.display = "none";
+          carouselItems[i].style.display = 'none';
         }
       
-        carouselItems[currentIndex].style.display = "block";
+        carouselItems[currentIndex].style.display = 'block';
+      
+        return currentIndex;
       }
     </script>
 
