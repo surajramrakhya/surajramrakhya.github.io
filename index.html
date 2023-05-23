@@ -372,29 +372,29 @@
         <div class="row">
           <div class="col s12">
             <h4>Architectural Visualization</h4>
-            <div class="carousel">
+            <div class="carousel architectural-carousel">
               <!-- Image 1 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/archviz/interior.png" alt="Image 1">
+                  <img src="/assets/img/interior.jpeg" alt="Image 1">
                 </div>
               </div>
               <!-- Image 2 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/archviz/interior2.png" alt="Image 2">
+                  <img src="/assets/img/interior2.jpeg" alt="Image 2">
                 </div>
               </div>
               <!-- Image 3 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/archviz/interior3.png" alt="Image 3">
+                  <img src="/assets/img/interior3.jpeg" alt="Image 3">
                 </div>
               </div>
               <!-- Image 4 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/archviz/interior4.png" alt="Image 4">
+                  <img src="/assets/img/interior4.jpeg" alt="Image 4">
                 </div>
               </div>
             </div>
@@ -405,23 +405,29 @@
         <div class="row">
           <div class="col s12">
             <h4>Product Visualization</h4>
-            <div class="carousel">
+            <div class="carousel product-carousel">
               <!-- Image 1 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/product/product1.png" alt="Image 1">
+                  <img src="/assets/img/product1.jpeg" alt="Image 1">
                 </div>
               </div>
               <!-- Image 2 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/product/product2.png" alt="Image 2">
+                  <img src="/assets/img/product2.jpeg" alt="Image 2">
                 </div>
               </div>
               <!-- Image 3 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/product/product3.png" alt="Image 3">
+                  <img src="/assets/img/product3.jpeg" alt="Image 3">
+                </div>
+              </div>
+              <!-- Image 4 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/product4.jpeg" alt="Image 4">
                 </div>
               </div>
             </div>
@@ -432,29 +438,29 @@
         <div class="row">
           <div class="col s12">
             <h4>3D Environment</h4>
-            <div class="carousel">
+            <div class="carousel environment-carousel">
               <!-- Image 1 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/env/environment1.png" alt="Image 1">
+                  <img src="/assets/img/environment1.jpeg" alt="Image 1">
                 </div>
               </div>
               <!-- Image 2 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/env/environment2.jpg" alt="Image 2">
+                  <img src="/assets/img/environment2.jpeg" alt="Image 2">
                 </div>
               </div>
               <!-- Image 3 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/env/environment3.png" alt="Image 3">
+                  <img src="/assets/img/environment3.jpeg" alt="Image 3">
                 </div>
               </div>
               <!-- Image 4 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/env/environment4.jpg" alt="Image 4">
+                  <img src="/assets/img/environment4.jpeg" alt="Image 4">
                 </div>
               </div>
             </div>
@@ -523,52 +529,44 @@
       carouselSlide('environment', 0); // Show first image for 3D environment by default
       
       function carouselSlide(category, n) {
-        var carouselItems = document.getElementsByClassName("carousel-item");
+        var carouselItems;
         var currentIndex;
       
         switch (category) {
           case 'architectural':
+            carouselItems = document.querySelectorAll('.architectural-carousel .carousel-item');
             currentIndex = architecturalIndex + n;
-      
-            if (currentIndex < 0) {
-              currentIndex = carouselItems.length - 1;
-            } else if (currentIndex >= carouselItems.length) {
-              currentIndex = 0;
-            }
-      
-            architecturalIndex = currentIndex;
+            architecturalIndex = handleCarouselSlide(carouselItems, currentIndex);
             break;
       
           case 'product':
+            carouselItems = document.querySelectorAll('.product-carousel .carousel-item');
             currentIndex = productIndex + n;
-      
-            if (currentIndex < 0) {
-              currentIndex = carouselItems.length - 1;
-            } else if (currentIndex >= carouselItems.length) {
-              currentIndex = 0;
-            }
-      
-            productIndex = currentIndex;
+            productIndex = handleCarouselSlide(carouselItems, currentIndex);
             break;
       
           case 'environment':
+            carouselItems = document.querySelectorAll('.environment-carousel .carousel-item');
             currentIndex = environmentIndex + n;
-      
-            if (currentIndex < 0) {
-              currentIndex = carouselItems.length - 1;
-            } else if (currentIndex >= carouselItems.length) {
-              currentIndex = 0;
-            }
-      
-            environmentIndex = currentIndex;
+            environmentIndex = handleCarouselSlide(carouselItems, currentIndex);
             break;
+        }
+      }
+      
+      function handleCarouselSlide(carouselItems, currentIndex) {
+        if (currentIndex < 0) {
+          currentIndex = carouselItems.length - 1;
+        } else if (currentIndex >= carouselItems.length) {
+          currentIndex = 0;
         }
       
         for (var i = 0; i < carouselItems.length; i++) {
-          carouselItems[i].style.display = "none";
+          carouselItems[i].style.display = 'none';
         }
       
-        carouselItems[currentIndex].style.display = "block";
+        carouselItems[currentIndex].style.display = 'block';
+      
+        return currentIndex;
       }
     </script>
 
