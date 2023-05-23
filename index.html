@@ -553,9 +553,10 @@
     
           if (currentIndex === 0) {
             prevButton.style.display = 'none';
-          } else if (currentIndex === carouselItems.length) {
+            currentIndex = carouselItems.length; // Reset the index to the last image index
+          } else if (currentIndex === carouselItems.length - 1) {
             nextButton.style.display = 'none';
-            currentIndex = 0; // Reset the index to show the first image again
+            currentIndex = -1; // Reset the index to -1 (will be incremented to 0)
           }
         }
       }
