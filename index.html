@@ -398,8 +398,10 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
-            <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
+            <div class="carousel-buttons">
+              <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
+              <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -425,8 +427,10 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
-            <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
+            <div class="carousel-buttons">
+              <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
+              <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -458,28 +462,6 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-prev" onclick="carouselSlide('environment-carousel', -1)">&#10094;</a>
-            <a class="carousel-next" onclick="carouselSlide('environment-carousel', 1)">&#10095;</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
             <div class="carousel-buttons">
               <a class="carousel-prev" onclick="carouselSlide('environment-carousel', -1)">&#10094;</a>
               <a class="carousel-next" onclick="carouselSlide('environment-carousel', 1)">&#10095;</a>
@@ -567,8 +549,8 @@
             break;
         }
     
-        var prevButton = document.querySelector('.' + carouselId + ' + .carousel-prev');
-        var nextButton = document.querySelector('.' + carouselId + ' + .carousel-next');
+        var prevButton = document.querySelector('.' + carouselId + ' + .carousel-buttons .carousel-prev');
+        var nextButton = document.querySelector('.' + carouselId + ' + .carousel-buttons .carousel-next');
     
         if (prevButton && nextButton) {
           prevButton.style.display = 'block';
