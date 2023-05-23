@@ -559,20 +559,21 @@
         }
       }
     
-      function handleCarouselSlide(carouselItems, currentIndex) {
-        if (currentIndex >= carouselItems.length) {
-          currentIndex = 0;
-        } else if (currentIndex < 0) {
-          currentIndex = carouselItems.length - 1;
-        }
-    
-        for (var i = 0; i < carouselItems.length; i++) {
-          carouselItems[i].style.display = 'none';
-        }
-    
-        carouselItems[currentIndex].style.display = 'block';
-        return currentIndex;
+    function handleCarouselSlide(carouselItems, currentIndex) {
+      if (currentIndex >= carouselItems.length) {
+        currentIndex = 0;
+      } else if (currentIndex < 0) {
+        currentIndex = carouselItems.length - 1;
       }
+    
+      for (var i = 0; i < carouselItems.length; i++) {
+        carouselItems[i].style.display = 'none';
+      }
+    
+      carouselItems[currentIndex].style.display = 'block';
+    
+      return currentIndex;
+    }
     </script>
 
     <!-- Fifth Section: Skills -->
