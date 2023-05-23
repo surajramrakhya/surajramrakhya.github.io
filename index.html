@@ -552,11 +552,11 @@
           nextButton.style.display = 'block';
     
           if (currentIndex === 0) {
-            prevButton.style.display = 'none';
-            currentIndex = carouselItems.length; // Reset the index to the last image index
+            prevButton.style.display = 'block';
+            currentIndex = carouselItems.length - 1; // Set the index to the last image index
           } else if (currentIndex === carouselItems.length - 1) {
-            nextButton.style.display = 'none';
-            currentIndex = -1; // Reset the index to -1 (will be incremented to 0)
+            nextButton.style.display = 'block';
+            currentIndex = 0; // Set the index to the first image index
           }
         }
       }
