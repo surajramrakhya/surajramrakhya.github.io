@@ -398,10 +398,8 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
-            </div>
+            <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
+            <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
           </div>
         </div>
         <div class="row">
@@ -427,10 +425,8 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
-            </div>
+            <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
+            <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
           </div>
         </div>
         <div class="row">
@@ -462,10 +458,30 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('environment-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('environment-carousel', 1)">&#10095;</a>
-            </div>
+            <a class="carousel-prev" onclick="carouselSlide('environment-carousel', -1)">&#10094;</a>
+            <a class="carousel-next" onclick="carouselSlide('environment-carousel', 1)">&#10095;</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s4">
+            <button onclick="carouselSlide('architectural-carousel', -1)">Previous (Architectural)</button>
+          </div>
+          <div class="col s4">
+            <button onclick="carouselSlide('product-carousel', -1)">Previous (Product)</button>
+          </div>
+          <div class="col s4">
+            <button onclick="carouselSlide('environment-carousel', -1)">Previous (Environment)</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s4">
+            <button onclick="carouselSlide('architectural-carousel', 1)">Next (Architectural)</button>
+          </div>
+          <div class="col s4">
+            <button onclick="carouselSlide('product-carousel', 1)">Next (Product)</button>
+          </div>
+          <div class="col s4">
+            <button onclick="carouselSlide('environment-carousel', 1)">Next (Environment)</button>
           </div>
         </div>
       </div>
@@ -476,24 +492,24 @@
         margin-bottom: 20px;
         text-align: center;
       }
-    
+      
       .image-container img {
         width: 100%;
       }
-    
+      
       .carousel {
         position: relative;
         overflow: hidden;
       }
-    
+      
       .carousel-item {
         display: none;
       }
-    
+      
       .carousel-item:first-child {
         display: block;
       }
-    
+      
       .carousel-prev,
       .carousel-next {
         position: absolute;
@@ -509,11 +525,11 @@
         cursor: pointer;
         z-index: 2;
       }
-    
+      
       .carousel-prev {
         left: 10px;
       }
-    
+      
       .carousel-next {
         right: 10px;
       }
@@ -549,8 +565,8 @@
             break;
         }
     
-        var prevButton = document.querySelector('.' + carouselId + ' + .carousel-buttons .carousel-prev');
-        var nextButton = document.querySelector('.' + carouselId + ' + .carousel-buttons .carousel-next');
+        var prevButton = document.querySelector('.' + carouselId + ' + .carousel-prev');
+        var nextButton = document.querySelector('.' + carouselId + ' + .carousel-next');
     
         if (prevButton && nextButton) {
           prevButton.style.display = 'block';
