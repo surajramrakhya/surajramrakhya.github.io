@@ -555,13 +555,14 @@
             prevButton.style.display = 'none';
           } else if (currentIndex === carouselItems.length - 1) {
             nextButton.style.display = 'none';
+            currentIndex = 0; // Reset to first image
           }
         }
       }
     
       function handleCarouselSlide(carouselItems, currentIndex) {
         if (currentIndex >= carouselItems.length) {
-          currentIndex = 0;
+          currentIndex = 0; // Reset to first image
         } else if (currentIndex < 0) {
           currentIndex = carouselItems.length - 1;
         }
