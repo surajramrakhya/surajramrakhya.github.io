@@ -388,13 +388,55 @@
               <!-- Image 3 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/archviz/interior3.png" alt="Image 3">
+                  <img src="/assets/img/archviz/interior3.jpg" alt="Image 3">
                 </div>
               </div>
               <!-- Image 4 -->
               <div class="carousel-item">
                 <div class="image-container">
                   <img src="/assets/img/archviz/interior4.png" alt="Image 4">
+                </div>
+              </div>
+              <!-- Image 5 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/archviz/interior5.png" alt="Image 5">
+                </div>
+              </div>
+              <!-- Image 6 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/archviz/interior6.png" alt="Image 6">
+                </div>
+              </div>
+              <!-- Image 7 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/archviz/interior7.png" alt="Image 7">
+                </div>
+              </div>
+              <!-- Image 8 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/archviz/interior8.png" alt="Image 8">
+                </div>
+              </div>
+              <!-- Image 9 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/archviz/exterior.jpg" alt="Image 9">
+                </div>
+              </div>
+              <!-- Image 10 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/archviz/exterior1.png" alt="Image 10">
+                </div>
+              </div>
+              <!-- Image 11 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/archviz/exterior2.png" alt="Image 11">
                 </div>
               </div>
             </div>
@@ -420,10 +462,12 @@
                   <img src="/assets/img/product/product2.png" alt="Image 2">
                 </div>
               </div>
-              <!-- Image 3 -->
+              <!-- Video 1 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/product/product3.png" alt="Image 3">
+                  <video controls>
+                    <source src="/assets/videos/product/wine.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
             </div>
@@ -446,7 +490,15 @@
               <!-- Image 2 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/env/environment2.jpg" alt="Image 2">
+                  <img src="/assets/img/env/environment2.png" alt="Image 2">
+                </div>
+              </div>
+              <!-- Video 2 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <video controls>
+                    <source src="/assets/videos/env/env1.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
               <!-- Image 3 -->
@@ -455,10 +507,24 @@
                   <img src="/assets/img/env/environment3.png" alt="Image 3">
                 </div>
               </div>
+              <!-- Video 3 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <video controls>
+                    <source src="/assets/videos/env/env2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
               <!-- Image 4 -->
               <div class="carousel-item">
                 <div class="image-container">
-                  <img src="/assets/img/env/environment4.jpg" alt="Image 4">
+                  <img src="/assets/img/env/environment4.png" alt="Image 4">
+                </div>
+              </div>
+              <!-- Image 5 -->
+              <div class="carousel-item">
+                <div class="image-container">
+                  <img src="/assets/img/env/environment5.png" alt="Image 5">
                 </div>
               </div>
             </div>
@@ -477,7 +543,8 @@
         text-align: center;
       }
     
-      .image-container img {
+      .image-container img,
+      .image-container video {
         width: 100%;
       }
     
@@ -519,9 +586,9 @@
       var productIndex = 0;
       var environmentIndex = 0;
     
-      carouselSlide('architectural-carousel', 0); // Show first image for architectural visualization by default
-      carouselSlide('product-carousel', 0); // Show first image for product visualization by default
-      carouselSlide('environment-carousel', 0); // Show first image for 3D environment by default
+      carouselSlide('architectural-carousel', 0); // Show first image/video for architectural visualization by default
+      carouselSlide('product-carousel', 0); // Show first image/video for product visualization by default
+      carouselSlide('environment-carousel', 0); // Show first image/video for 3D environment by default
     
       function carouselSlide(carouselId, n) {
         var carouselItems = document.querySelectorAll('.' + carouselId + ' .carousel-item');
@@ -553,10 +620,10 @@
     
           if (currentIndex === 0) {
             prevButton.style.display = 'block';
-            currentIndex = carouselItems.length - 1; // Set the index to the last image index
+            currentIndex = carouselItems.length - 1; // Set the index to the last image/video index
           } else if (currentIndex === carouselItems.length - 1) {
             nextButton.style.display = 'block';
-            currentIndex = 0; // Set the index to the first image index
+            currentIndex = 0; // Set the index to the first image/video index
           }
         }
       }
@@ -576,6 +643,7 @@
         return currentIndex;
       }
     </script>
+
 
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">
