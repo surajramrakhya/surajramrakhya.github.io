@@ -551,7 +551,47 @@
     </section>
     
     <style>
-      /* Styles remain the same */
+      .image-container {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    
+      .image-container img,
+      .image-container video {
+        width: 100%;
+      }
+    
+      .carousel {
+        position: relative;
+        overflow: hidden;
+      }
+    
+      .carousel-item {
+        display: none;
+      }
+    
+      .carousel-item:first-child {
+        display: block;
+      }
+    
+      .carousel-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    
+      .carousel-prev,
+      .carousel-next {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 5px;
+      }
     </style>
     
     <script>
