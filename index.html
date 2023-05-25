@@ -445,12 +445,6 @@
               <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
               <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
             </div>
-              <!-- ... -->
-            </div>
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
-            </div>
           </div>
         </div>
         <div class="row">
@@ -476,12 +470,6 @@
                     <source src="/assets/videos/product/wine.mp4" type="video/mp4">
                   </video>
                 </div>
-            </div>
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
-            </div>
-              <!-- ... -->
             </div>
             <div class="carousel-buttons">
               <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
@@ -539,7 +527,6 @@
                   <img src="/assets/img/env/environment5.png" alt="Image 5">
                 </div>
               </div>
-              <!-- ... -->
             </div>
             <div class="carousel-buttons">
               <a class="carousel-prev" onclick="carouselSlide('environment-carousel', -1)">&#10094;</a>
@@ -551,49 +538,44 @@
     </section>
     
     <style>
-      .image-container {
-        margin-bottom: 20px;
-        text-align: center;
-      }
-    
-      .image-container img,
-      .image-container video {
-        width: 100%;
-      }
-    
       .carousel {
         position: relative;
+        height: 400px;
+        margin-bottom: 20px;
         overflow: hidden;
       }
     
       .carousel-item {
         display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
     
-      .carousel-item:first-child {
+      .carousel-item.active {
         display: block;
       }
     
       .carousel-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
+        margin-top: 10px;
+        text-align: center;
       }
     
       .carousel-prev,
       .carousel-next {
-        width: 40px;
-        height: 40px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        text-align: center;
-        line-height: 40px;
-        font-size: 24px;
-        cursor: pointer;
+        display: inline-block;
         margin: 0 5px;
+        padding: 10px;
+        font-size: 24px;
+        color: #fff;
+        background-color: #333;
+        border-radius: 50%;
+        cursor: pointer;
       }
     </style>
-    
+
     <script>
       var carouselData = {
         'architectural-carousel': { currentIndex: 0 },
