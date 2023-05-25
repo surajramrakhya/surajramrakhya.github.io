@@ -627,12 +627,16 @@
           }
         }
     
-        // Pause video if a video element is present
-        var video = carouselItems[currentIndex].querySelector('video');
-        if (video) {
-          if (!video.paused) {
-            video.pause();
-          }
+        // Pause video if a video element is present and playing
+        var currentCarouselItem = carouselItems[currentIndex];
+        var video = currentCarouselItem.querySelector('video');
+        if (video && !video.paused) {
+          video.pause();
+        }
+    
+        // Play video if it's a video slide and was paused
+        if (currentCarouselItem.classList.contains('carousel-video') && video && video.paused) {
+          video.play();
         }
       }
     
