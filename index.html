@@ -366,6 +366,7 @@
 	</section>
 
 
+    <!-- Fourth Section: Projects -->
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
@@ -619,11 +620,9 @@
           nextButton.style.display = 'block';
     
           if (currentIndex === 0) {
-            prevButton.style.display = 'block';
-            currentIndex = carouselItems.length - 1; // Set the index to the last image/video index
+            prevButton.style.display = 'none'; // Hide previous button on first image/video
           } else if (currentIndex === carouselItems.length - 1) {
-            nextButton.style.display = 'block';
-            currentIndex = 0; // Set the index to the first image/video index
+            nextButton.style.display = 'none'; // Hide next button on last image/video
           }
         }
     
