@@ -365,7 +365,7 @@
         </div>
 	</section>
 
-    <!-- Fourth Section: Projects -->
+
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
@@ -632,11 +632,13 @@
         var video = currentCarouselItem.querySelector('video');
         if (video && !video.paused) {
           video.pause();
+          video.dataset.playing = 'false'; // Update the custom 'playing' attribute to indicate the video is paused
         }
     
         // Play video if it's a video slide and was paused
-        if (currentCarouselItem.classList.contains('carousel-video') && video && video.paused) {
+        if (currentCarouselItem.classList.contains('carousel-video') && video && video.dataset.playing === 'false') {
           video.play();
+          video.dataset.playing = 'true'; // Update the custom 'playing' attribute to indicate the video is playing
         }
       }
     
@@ -654,6 +656,17 @@
         carouselItems[currentIndex].style.display = 'block';
         return currentIndex;
       }
+    
+      // Handle click event on video slide play button
+      document.querySelectorAll('.carousel-video .play-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+          var video = this.closest('.carousel-item').querySelector('video');
+          if (video && video.dataset.playing === 'false') {
+            video.play();
+            video.dataset.playing = 'true'; // Update the custom 'playing' attribute to indicate the video is playing
+          }
+        });
+      });
     </script>
 
     <!-- Fifth Section: Skills -->
