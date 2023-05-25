@@ -470,7 +470,6 @@
                     <source src="/assets/videos/product/wine.mp4" type="video/mp4">
                   </video>
                 </div>
-              </div>
             </div>
             <div class="carousel-buttons">
               <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
@@ -583,89 +582,79 @@
     </style>
     
     <script>
-      var architecturalIndex = 0;
-      var productIndex = 0;
-      var environmentIndex = 0;
-    
-      carouselSlide('architectural-carousel', 0); // Show first image/video for architectural visualization by default
-      carouselSlide('product-carousel', 0); // Show first image/video for product visualization by default
-      carouselSlide('environment-carousel', 0); // Show first image/video for 3D environment by default
-    
-      function carouselSlide(carouselId, n) {
-        var carouselItems = document.querySelectorAll('.' + carouselId + ' .carousel-item');
-        var currentIndex;
-    
-        switch (carouselId) {
-          case 'architectural-carousel':
-            currentIndex = architecturalIndex + n;
-            architecturalIndex = handleCarouselSlide(carouselItems, currentIndex);
-            break;
-    
-          case 'product-carousel':
-            currentIndex = productIndex + n;
-            productIndex = handleCarouselSlide(carouselItems, currentIndex);
-            break;
-    
-          case 'environment-carousel':
-            currentIndex = environmentIndex + n;
-            environmentIndex = handleCarouselSlide(carouselItems, currentIndex);
-            break;
+      var carouselData = {
+        'architectural-carousel': {
+          currentIndex: 0,
+          items: null
+        },
+        'product-carousel': {
+          currentIndex: 0,
+          items: null
+        },
+        'environment-carousel': {
+          currentIndex: 0,
+          items: null
         }
+      };
     
-        var prevButton = document.querySelector('.' + carouselId + ' + .carousel-buttons .carousel-prev');
-        var nextButton = document.querySelector('.' + carouselId + ' + .carousel-buttons .carousel-next');
+      var carouselIds = Object.keys(carouselData);
     
-        if (prevButton && nextButton) {
-          prevButton.style.display = 'block';
-          nextButton.style.display = 'block';
+      carouselIds.forEach(function(carouselId) {
+        var carousel = document.querySelector('.' + carouselId);
+        carouselData[carouselId].items = carousel.querySelectorAll('.carousel-item');
     
-          if (currentIndex === 0) {
-            prevButton.style.display = 'none'; // Hide previous button on first image/video
-          } else if (currentIndex === carouselItems.length - 1) {
-            nextButton.style.display = 'none'; // Hide next button on last image/video
-          }
-        }
-    
-        // Pause video if a video element is present and playing
-        var currentCarouselItem = carouselItems[currentIndex];
-        var video = currentCarouselItem.querySelector('video');
-        if (video && !video.paused) {
-          video.pause();
-          video.dataset.playing = 'false'; // Update the custom 'playing' attribute to indicate the video is paused
-        }
-    
-        // Play video if it's a video slide and was paused
-        if (currentCarouselItem.classList.contains('carousel-video') && video && video.dataset.playing === 'false') {
-          video.play();
-          video.dataset.playing = 'true'; // Update the custom 'playing' attribute to indicate the video is playing
-        }
-      }
-    
-      function handleCarouselSlide(carouselItems, currentIndex) {
-        if (currentIndex >= carouselItems.length) {
-          currentIndex = 0;
-        } else if (currentIndex < 0) {
-          currentIndex = carouselItems.length - 1;
-        }
-    
-        for (var i = 0; i < carouselItems.length; i++) {
-          carouselItems[i].style.display = 'none';
-        }
-    
-        carouselItems[currentIndex].style.display = 'block';
-        return currentIndex;
-      }
-    
-      // Handle click event on video slide play button
-      document.querySelectorAll('.carousel-video .play-button').forEach(function(button) {
-        button.addEventListener('click', function() {
-          var video = this.closest('.carousel-item').querySelector('video');
-          if (video && video.dataset.playing === 'false') {
-            video.play();
-            video.dataset.playing = 'true'; // Update the custom 'playing' attribute to indicate the video is playing
-          }
+        carouselData[carouselId].items.forEach(function(item, index) {
+          var video = item.querySelector('video');
+          video.addEventListener('play', function() {
+            pauseOtherVideos(carouselId);
+          });
         });
       });
+    
+      function pauseOtherVideos(currentCarouselId) {
+        carouselIds.forEach(function(carouselId) {
+          if (carouselId !== currentCarouselId) {
+            var carousel = document.querySelector('.' + carouselId);
+            var items = carouselData[carouselId].items;
+    
+            items.forEach(function(item) {
+              var video = item.querySelector('video');
+              video.pause();
+            });
+          }
+        });
+      }
+    
+      function carouselSlide(carouselId, slideIndex) {
+        var carousel = document.querySelector('.' + carouselId);
+        var items = carouselData[carouselId].items;
+        var currentIndex = carouselData[carouselId].currentIndex;
+        var nextIndex = currentIndex + slideIndex;
+    
+        if (nextIndex >= items.length) {
+          nextIndex = 0;
+        } else if (nextIndex < 0) {
+          nextIndex = items.length - 1;
+        }
+    
+        var currentItem = items[currentIndex];
+        var nextItem = items[nextIndex];
+    
+        var currentVideo = currentItem.querySelector('video');
+        if (currentVideo) {
+          currentVideo.pause();
+        }
+    
+        carouselData[carouselId].currentIndex = nextIndex;
+    
+        currentItem.style.display = 'none';
+        nextItem.style.display = 'block';
+    
+        var nextVideo = nextItem.querySelector('video');
+        if (nextVideo) {
+          nextVideo.currentTime = 0;
+        }
+      }
     </script>
 
     <!-- Fifth Section: Skills -->
