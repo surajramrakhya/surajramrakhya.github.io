@@ -626,6 +626,14 @@
             currentIndex = 0; // Set the index to the first image/video index
           }
         }
+    
+        // Pause video if a video element is present
+        var video = carouselItems[currentIndex].querySelector('video');
+        if (video) {
+          if (!video.paused) {
+            video.pause();
+          }
+        }
       }
     
       function handleCarouselSlide(carouselItems, currentIndex) {
