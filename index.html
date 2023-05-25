@@ -445,6 +445,12 @@
               <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
               <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
             </div>
+              <!-- ... -->
+            </div>
+            <div class="carousel-buttons">
+              <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
+              <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -470,6 +476,12 @@
                     <source src="/assets/videos/product/wine.mp4" type="video/mp4">
                   </video>
                 </div>
+            </div>
+            <div class="carousel-buttons">
+              <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
+              <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
+            </div>
+              <!-- ... -->
             </div>
             <div class="carousel-buttons">
               <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
@@ -527,6 +539,7 @@
                   <img src="/assets/img/env/environment5.png" alt="Image 5">
                 </div>
               </div>
+              <!-- ... -->
             </div>
             <div class="carousel-buttons">
               <a class="carousel-prev" onclick="carouselSlide('environment-carousel', -1)">&#10094;</a>
@@ -538,92 +551,15 @@
     </section>
     
     <style>
-      .image-container {
-        margin-bottom: 20px;
-        text-align: center;
-      }
-    
-      .image-container img,
-      .image-container video {
-        width: 100%;
-      }
-    
-      .carousel {
-        position: relative;
-        overflow: hidden;
-      }
-    
-      .carousel-item {
-        display: none;
-      }
-    
-      .carousel-item:first-child {
-        display: block;
-      }
-    
-      .carousel-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-      }
-    
-      .carousel-prev,
-      .carousel-next {
-        width: 40px;
-        height: 40px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        text-align: center;
-        line-height: 40px;
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 5px;
-      }
+      /* Styles remain the same */
     </style>
     
     <script>
       var carouselData = {
-        'architectural-carousel': {
-          currentIndex: 0,
-          items: null
-        },
-        'product-carousel': {
-          currentIndex: 0,
-          items: null
-        },
-        'environment-carousel': {
-          currentIndex: 0,
-          items: null
-        }
+        'architectural-carousel': { currentIndex: 0 },
+        'product-carousel': { currentIndex: 0 },
+        'environment-carousel': { currentIndex: 0 }
       };
-    
-      var carouselIds = Object.keys(carouselData);
-    
-      carouselIds.forEach(function(carouselId) {
-        var carousel = document.querySelector('.' + carouselId);
-        carouselData[carouselId].items = carousel.querySelectorAll('.carousel-item');
-    
-        carouselData[carouselId].items.forEach(function(item, index) {
-          var video = item.querySelector('video');
-          video.addEventListener('play', function() {
-            pauseOtherVideos(carouselId);
-          });
-        });
-      });
-    
-      function pauseOtherVideos(currentCarouselId) {
-        carouselIds.forEach(function(carouselId) {
-          if (carouselId !== currentCarouselId) {
-            var carousel = document.querySelector('.' + carouselId);
-            var items = carouselData[carouselId].items;
-    
-            items.forEach(function(item) {
-              var video = item.querySelector('video');
-              video.pause();
-            });
-          }
-        });
-      }
     
       function carouselSlide(carouselId, slideIndex) {
         var carousel = document.querySelector('.' + carouselId);
@@ -643,6 +579,7 @@
         var currentVideo = currentItem.querySelector('video');
         if (currentVideo) {
           currentVideo.pause();
+          currentVideo.currentTime = 0;
         }
     
         carouselData[carouselId].currentIndex = nextIndex;
@@ -652,10 +589,29 @@
     
         var nextVideo = nextItem.querySelector('video');
         if (nextVideo) {
-          nextVideo.currentTime = 0;
+          nextVideo.play();
         }
       }
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        var carouselIds = ['architectural-carousel', 'product-carousel', 'environment-carousel'];
+    
+        carouselIds.forEach(function(carouselId) {
+          var carousel = document.querySelector('.' + carouselId);
+          var items = carousel.querySelectorAll('.carousel-item');
+          carouselData[carouselId].items = items;
+    
+          items.forEach(function(item, index) {
+            if (index === 0) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
     </script>
+
 
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">
