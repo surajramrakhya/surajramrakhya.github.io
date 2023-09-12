@@ -172,6 +172,26 @@
             class="mdi-av-my-library-books small"></i><span>Projects</span></a>
       </li>
       <li class="bold">
+          <a aria-label="Navigate to Architectural Visualization" href="#architectural-visualization" class="waves-effect waves-dark teal-text">
+              <i class="mdi-content-mail small"></i>
+              <span>Architectural Visualization</span>
+          </a>
+      </li>
+      
+      <li class="bold">
+          <a aria-label="Navigate to Product Visualization" href="#product-visualization" class="waves-effect waves-dark teal-text">
+              <i class="mdi-content-mail small"></i>
+              <span>Product Visualization</span>
+          </a>
+      </li>
+      
+      <li class="bold">
+          <a aria-label="Navigate to 3D Environment" href="#3d-environment" class="waves-effect waves-dark teal-text">
+              <i class="mdi-content-mail small"></i>
+              <span>3D Environment</span>
+          </a>
+      </li>
+      <li class="bold">
         <a aria-label="Navigate to the Experience section" href="#experience"
           class="waves-effect waves-dark teal-text"><i
             class="mdi-action-trending-up small"></i><span>Experience</span></a>
@@ -873,36 +893,36 @@
   </script>
   <!-- JavaScript code -->
   <script>
-      // Get all navigation links
-      const navLinks = document.querySelectorAll('nav a');
-
-      // Add a click event listener to each link
-      navLinks.forEach(link => {
-          link.addEventListener('click', function (event) {
-              event.preventDefault(); // Prevent the default link behavior
-              
-              // Get the target section's ID from the link's href
-              const targetId = this.getAttribute('href').substring(1); // Remove the '#' symbol
-              
-              // Use the HTML5 History API to update the URL
-              history.pushState({}, '', `#${targetId}`);
-              
-              // Scroll to the target section smoothly
-              document.getElementById(targetId).scrollIntoView({
-                  behavior: 'smooth'
-              });
-          });
-      });
-
-      // Handle back/forward button clicks to update the active section
-      window.addEventListener('popstate', function () {
-          const targetId = location.hash.substring(1);
-          
-          // Scroll to the target section smoothly
-          document.getElementById(targetId).scrollIntoView({
-              behavior: 'smooth'
-          });
-      });
+       // Get all navigation links
+       const navLinks = document.querySelectorAll('nav a');
+       
+       // Add a click event listener to each link
+       navLinks.forEach(link => {
+           link.addEventListener('click', function (event) {
+               event.preventDefault(); // Prevent the default link behavior
+       
+               // Get the target section's ID from the link's href
+               const targetId = this.getAttribute('href').substring(1); // Remove the '#' symbol
+       
+               // Use the HTML5 History API to update the URL
+               history.pushState({}, '', `#${targetId}`);
+       
+               // Scroll to the target section smoothly
+               document.getElementById(targetId).scrollIntoView({
+                   behavior: 'smooth'
+               });
+           });
+       });
+       
+       // Handle back/forward button clicks to update the active section
+       window.addEventListener('popstate', function () {
+           const targetId = location.hash.substring(1);
+       
+           // Scroll to the target section smoothly
+           document.getElementById(targetId).scrollIntoView({
+               behavior: 'smooth'
+           });
+       });
   </script>
 
 </body>
