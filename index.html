@@ -15,7 +15,8 @@
   <!-- End Google Tag Manager -->
 
   <!-- Materialize - Compiled and minified CSS-->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- Font Awesome Icon - CSS-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <!-- Custom Styles-->
@@ -94,10 +95,27 @@
             class="mdi-social-person small"></i><span>About</span></a>
       </li>
       <li class="bold">
-        <!-- mdi-av-web small
-             mdi-av-my-library-books small-->
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+          <!-- Add collapsible-header class for the Projects section -->
+          <a aria-label="Navigate to the Projects section" href="#projects" class="collapsible-header waves-effect waves-dark teal-text">
+              <i class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+          
+          <!-- Nested list for sub-sections under Projects -->
+          <div class="collapsible-body">
+              <ul>
+                  <li class="bold">
+                      <a aria-label="Navigate to Architectural Visualization" href="#architectural-visualization"
+                          class="waves-effect waves-dark teal-text"><span>Architectural Visualization</span></a>
+                  </li>
+                  <li class="bold">
+                      <a aria-label="Navigate to Product Visualization" href="#product-visualization"
+                          class="waves-effect waves-dark teal-text"><span>Product Visualization</span></a>
+                  </li>
+                  <li class="bold">
+                      <a aria-label="Navigate to 3D Environment" href="#3d-environment"
+                          class="waves-effect waves-dark teal-text"><span>3D Environment</span></a>
+                  </li>
+              </ul>
+          </div>
       </li>
       <li class="bold">
         <a aria-label="Navigate to the Experience section" href="#experience"
@@ -163,8 +181,27 @@
             class="mdi-social-person small"></i><span>About</span></a>
       </li>
       <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+          <!-- Add collapsible-header class for the Projects section -->
+          <a aria-label="Navigate to the Projects section" href="#projects" class="collapsible-header waves-effect waves-dark teal-text"><i
+                  class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+          
+          <!-- Nested list for sub-sections under Projects -->
+          <div class="collapsible-body">
+              <ul>
+                  <li class="bold">
+                      <a aria-label="Navigate to Architectural Visualization" href="#architectural-visualization"
+                          class="waves-effect waves-dark teal-text"><span>Architectural Visualization</span></a>
+                  </li>
+                  <li class="bold">
+                      <a aria-label="Navigate to Product Visualization" href="#product-visualization"
+                          class="waves-effect waves-dark teal-text"><span>Product Visualization</span></a>
+                  </li>
+                  <li class="bold">
+                      <a aria-label="Navigate to 3D Environment" href="#3d-environment"
+                          class="waves-effect waves-dark teal-text"><span>3D Environment</span></a>
+                  </li>
+              </ul>
+          </div>
       </li>
       <li class="bold">
         <a aria-label="Navigate to the Experience section" href="#experience"
@@ -849,18 +886,21 @@
        // Add a click event listener to each link
        navLinks.forEach(link => {
            link.addEventListener('click', function (event) {
-               event.preventDefault(); // Prevent the default link behavior
+               // Check if the link has the target="_blank" attribute
+               if (!this.getAttribute('target') || this.getAttribute('target') !== '_blank') {
+                   event.preventDefault(); // Prevent the default link behavior
        
-               // Get the target section's ID from the link's href
-               const targetId = this.getAttribute('href').substring(1); // Remove the '#' symbol
+                   // Get the target section's ID from the link's href
+                   const targetId = this.getAttribute('href').substring(1); // Remove the '#' symbol
        
-               // Use the HTML5 History API to update the URL
-               history.pushState({}, '', `#${targetId}`);
+                   // Use the HTML5 History API to update the URL
+                   history.pushState({}, '', `#${targetId}`);
        
-               // Scroll to the target section smoothly
-               document.getElementById(targetId).scrollIntoView({
-                   behavior: 'smooth'
-               });
+                   // Scroll to the target section smoothly
+                   document.getElementById(targetId).scrollIntoView({
+                       behavior: 'smooth'
+                   });
+               }
            });
        });
        
@@ -874,7 +914,24 @@
            });
        });
   </script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          // Initialize collapsible for Projects section
+          var projectsCollapsible = document.querySelector('.collapsible');
+          var projectsCollapsibleInstance = M.Collapsible.init(projectsCollapsible, {
+              accordion: false // Set to false to allow multiple sub-sections to be open at the same time
+          });
+  
+          // Optionally, you can also initialize collapsible for other sections if needed
+          // Example:
+          // var experienceCollapsible = document.querySelector('.experience-collapsible');
+          // var experienceCollapsibleInstance = M.Collapsible.init(experienceCollapsible);
+      });
+  </script>
+
 </body>
 
 </html>
+
+
 
