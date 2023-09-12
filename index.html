@@ -32,6 +32,36 @@
     gtag('config', 'UA-126939217-2');
   </script>
 
+  <style>
+      /* Collapsible Styles for Small Screen Navigation */
+      .collapsible-header {
+          cursor: pointer;
+          user-select: none;
+      }
+  
+      .collapsible-body {
+          display: none;
+          overflow: hidden;
+      }
+  
+      .collapsible-body ul {
+          margin-left: 20px; /* Adjust the indentation as needed */
+      }
+  
+      .collapsible-body ul li a {
+          color: #333; /* Adjust the color as needed */
+      }
+  
+      .collapsible.active .collapsible-header::before {
+          transform: rotate(90deg);
+      }
+  
+      /* Change the color of the active collapsible header */
+      .collapsible.active .collapsible-header {
+          color: #008073; /* Adjust the color as needed */
+      }
+  </style>
+
   <!-- Open Graph-->
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
@@ -80,69 +110,91 @@
   <!-- Navigation Menu-->
   <!-- Nav class 1 -->
   <nav class="hide-on-small-only">
-    <ul class="side-nav fixed section table-of-contents">
-
-      <li class="logo">
-        <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
-          class="brand-logo grey-blue-text">
-          <img src="/assets/img/passport-new.png" class="circle img-responsive profile-pic" alt="avatar">
-        </a>
-      </li>
-
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <!-- mdi-av-web small
-             mdi-av-my-library-books small-->
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
-
-      <li class="bold">
-        <!--
-        ICONS:
-        mdi-action-assessment
-        mdi-social-poll
-        mdi-av-equalizer
-        -->
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
-      </li>
-      
-
-      <li class="bold">
-        <!-- 
-        1. mdi-communication-contacts
-        2. mdi-content-mail
-        3. mdi-communication-email
-        -->
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-
-      <li class="bold">
-        <!--
-        ICONS:
-        1. mdi-action-description
-        2. mdi-file-folder
-        3. mdi-file-folder-open
-        4. mdi-file-attachment
-        5. mdi-file-folder-shared
-        -->
-        <!-- <a aria-label="Open Suraj's resume in a new tab" href="#resume" target="_blank"
-          onclick="window.open('https://drive.google.com/file/d/1L8mhSA4xHHom1pSMmhES3vOyDQxGmCu6/view?usp=sharing')"
-          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a> -->
-        <a aria-label="Open Suraj's resume in a new tab" href="https://drive.google.com/file/d/1L8mhSA4xHHom1pSMmhES3vOyDQxGmCu6/view?usp=sharing" target="_blank"
-        class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>  
-      </li>
-    </ul>
+      <ul class="side-nav fixed section table-of-contents">
+  
+          <li class="logo">
+              <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
+                  class="brand-logo grey-blue-text">
+                  <img src="/assets/img/passport-new.png" class="circle img-responsive profile-pic" alt="avatar">
+              </a>
+          </li>
+  
+          <li class="bold">
+              <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
+                      class="mdi-social-person small"></i><span>About</span></a>
+          </li>
+  
+          <li class="bold">
+              <!-- mdi-av-web small
+               mdi-av-my-library-books small-->
+              <a aria-label="Navigate to the Projects section" href="#projects" class="collapsible-header waves-effect waves-dark teal-text">
+                  <i class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+  
+              <!-- Nested list for sub-sections under Projects -->
+              <div class="collapsible-body">
+                  <ul>
+                      <li class="bold">
+                          <a aria-label="Navigate to Architectural Visualization" href="#architectural-visualization"
+                              class="waves-effect waves-dark teal-text"><span>Architectural Visualization</span></a>
+                      </li>
+                      <li class="bold">
+                          <a aria-label="Navigate to Product Visualization" href="#product-visualization"
+                              class="waves-effect waves-dark teal-text"><span>Product Visualization</span></a>
+                      </li>
+                      <li class="bold">
+                          <a aria-label="Navigate to 3D Environment" href="#3d-environment"
+                              class="waves-effect waves-dark teal-text"><span>3D Environment</span></a>
+                      </li>
+                  </ul>
+              </div>
+          </li>
+  
+          <li class="bold">
+              <a aria-label="Navigate to the Experience section" href="#experience"
+                  class="waves-effect waves-dark teal-text"><i
+                      class="mdi-action-trending-up small"></i><span>Experience</span></a>
+          </li>
+  
+          <li class="bold">
+              <!--
+          ICONS:
+          mdi-action-assessment
+          mdi-social-poll
+          mdi-av-equalizer
+          -->
+              <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
+                      class="mdi-action-assessment small"></i><span>Skills</span></a>
+          </li>
+  
+  
+          <li class="bold">
+              <!-- 
+          1. mdi-communication-contacts
+          2. mdi-content-mail
+          3. mdi-communication-email
+          -->
+              <a aria-label="Navigate to the Contact section" href="#contact"
+                  class="waves-effect waves-dark teal-text"><i
+                      class="mdi-content-mail small"></i><span>Contact</span></a>
+          </li>
+  
+          <li class="bold">
+              <!--
+          ICONS:
+          1. mdi-action-description
+          2. mdi-file-folder
+          3. mdi-file-folder-open
+          4. mdi-file-attachment
+          5. mdi-file-folder-shared
+          -->
+              <!-- <a aria-label="Open Suraj's resume in a new tab" href="#resume" target="_blank"
+            onclick="window.open('https://drive.google.com/file/d/1L8mhSA4xHHom1pSMmhES3vOyDQxGmCu6/view?usp=sharing')"
+            class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a> -->
+              <a aria-label="Open Suraj's resume in a new tab"
+                  href="https://drive.google.com/file/d/1L8mhSA4xHHom1pSMmhES3vOyDQxGmCu6/view?usp=sharing" target="_blank"
+                  class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
+          </li>
+      </ul>
   </nav>
 
   <!-- Nav class 2 -->
@@ -155,54 +207,56 @@
     </div>
   </nav>
 
-
   <!-- Nav class 3 -->
   <nav class="hide-on-large only">
-    <ul id="slide-out" class="side-nav">
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-        <!-- Sub-sections under Projects -->
-        <ul>
-          <li>
-            <a aria-label="Navigate to Architectural Visualization" href="#architectural-visualization"
-              class="waves-effect waves-dark teal-text"><i class="mdi-content-mail small"></i><span>Architectural Visualization</span></a>
+      <ul id="slide-out" class="side-nav">
+          <li class="bold">
+              <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
+                      class="mdi-social-person small"></i><span>About</span></a>
           </li>
-          <li>
-            <a aria-label="Navigate to Product Visualization" href="#product-visualization"
-              class="waves-effect waves-dark teal-text"><i class="mdi-content-mail small"></i><span>Product Visualization</span></a>
+          <li class="bold">
+              <a aria-label="Navigate to the Projects section" href="#projects" class="collapsible-header waves-effect waves-dark teal-text"><i
+                      class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+              
+              <!-- Nested list for sub-sections under Projects -->
+              <div class="collapsible-body">
+                  <ul>
+                      <li class="bold">
+                          <a aria-label="Navigate to Architectural Visualization" href="#architectural-visualization"
+                              class="waves-effect waves-dark teal-text"><span>Architectural Visualization</span></a>
+                      </li>
+                      <li class="bold">
+                          <a aria-label="Navigate to Product Visualization" href="#product-visualization"
+                              class="waves-effect waves-dark teal-text"><span>Product Visualization</span></a>
+                      </li>
+                      <li class="bold">
+                          <a aria-label="Navigate to 3D Environment" href="#3d-environment"
+                              class="waves-effect waves-dark teal-text"><span>3D Environment</span></a>
+                      </li>
+                  </ul>
+              </div>
           </li>
-          <li>
-            <a aria-label="Navigate to 3D Environment" href="#3d-environment" class="waves-effect waves-dark teal-text"><i
-                class="mdi-content-mail small"></i><span>3D Environment</span></a>
+          <li class="bold">
+              <a aria-label="Navigate to the Experience section" href="#experience"
+                  class="waves-effect waves-dark teal-text"><i
+                      class="mdi-action-trending-up small"></i><span>Experience</span></a>
           </li>
-          <!-- Add more sub-section links here if needed -->
-        </ul>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
-      </li>
-  
-      <li class="bold">
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Open Suraj's Resume in a new tab"
-          href="https://drive.google.com/file/d/1HFv5l0W3ZehL3l6DaNlnTTvanpg_M1yg/view?usp=sharing" target="_blank"
-          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
-      </li>
-    </ul>
+          <li class="bold">
+              <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
+                      class="mdi-action-assessment small"></i><span>Skills</span></a>
+          </li>
+          <li class="bold">
+              <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
+                      class="mdi-content-mail small"></i><span>Contact</span></a>
+          </li>
+          <li class="bold">
+              <a aria-label="Open Suraj's Resume in a new tab"
+                  href="https://drive.google.com/file/d/1HFv5l0W3ZehL3l6DaNlnTTvanpg_M1yg/view?usp=sharing" target="_blank"
+                  class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
+          </li>
+      </ul>
   </nav>
+
 
   <!-- Main Content-->
   <main>
