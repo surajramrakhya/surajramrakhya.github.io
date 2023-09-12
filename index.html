@@ -843,6 +843,16 @@
   </script>
   <!-- JavaScript code -->
   <script>
+       // Handle back/forward button clicks to update the active section
+       window.addEventListener('popstate', function () {
+           const targetId = location.hash.substring(1);
+       
+           // Scroll to the target section smoothly
+           document.getElementById(targetId).scrollIntoView({
+               behavior: 'smooth'
+           });
+       });
+	   
        // Get all navigation links
        const navLinks = document.querySelectorAll('nav a');
        
