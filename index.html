@@ -89,10 +89,9 @@
             class="mdi-social-person small"></i><span>About</span></a>
       </li>
       <li class="bold">
-        <!-- mdi-av-web small
-             mdi-av-my-library-books small-->
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+        <a class="waves-effect waves-dark teal-text dropdown-trigger" data-target="projectsDropdown" href="#">
+          <i class="mdi-av-my-library-books small"></i><span>Projects</span><i class="material-icons right">arrow_drop_down</i>
+        </a>
       </li>
       <li class="bold">
         <a aria-label="Navigate to the Experience section" href="#experience"
@@ -140,6 +139,13 @@
     </ul>
   </nav>
 
+  <!-- Dropdown content for Projects section -->
+  <ul id="projectsDropdown" class="dropdown-content">
+    <li><a href="#architectural">Architectural Visualization</a></li>
+    <li><a href="#product">Product Visualization</a></li>
+    <li><a href="#environment">3D Environment</a></li>
+  </ul>
+
   <!-- Nav class 2 -->
   <nav class="hide-on-large only trigger z-depth-1">
     <a aria-label="Toggle visibility of the mobile navbar" href="#" data-activates="slide-out"
@@ -158,8 +164,9 @@
             class="mdi-social-person small"></i><span>About</span></a>
       </li>
       <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+        <a class="waves-effect waves-dark teal-text dropdown-trigger" data-target="projectsDropdownSmall" href="#">
+          <i class="mdi-av-my-library-books small"></i><span>Projects</span><i class="material-icons right">arrow_drop_down</i>
+        </a>
       </li>
       <li class="bold">
         <a aria-label="Navigate to the Experience section" href="#experience"
@@ -182,6 +189,13 @@
       </li>
     </ul>
   </nav>
+
+  <!-- Dropdown content for Projects section on small screens -->
+  <ul id="projectsDropdownSmall" class="dropdown-content">
+    <li><a href="#architectural">Architectural Visualization</a></li>
+    <li><a href="#product">Product Visualization</a></li>
+    <li><a href="#environment">3D Environment</a></li>
+  </ul>
 
   <!-- Main Content-->
   <main>
@@ -271,7 +285,8 @@
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
         <div class="row">
-          <div class="col s12">
+          <!-- First Sub-section: Architectural Visualization -->
+          <div id="architectural" class="col s12 section">
             <h4>Architectural Visualization</h4>
             <div class="carousel architectural-carousel">
               <!-- Image 1 -->
@@ -377,14 +392,11 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-buttons">
-              <a class="carousel-prev" onclick="carouselSlide('architectural-carousel', -1)">&#10094;</a>
-              <a class="carousel-next" onclick="carouselSlide('architectural-carousel', 1)">&#10095;</a>
-            </div>
           </div>
         </div>
         <div class="row">
-          <div class="col s12">
+          <!-- Second Sub-section: Product Visualization -->
+          <div id="product" class="col s12 section">
             <h4>Product Visualization</h4>
             <div class="carousel product-carousel">
               <!-- Image 1 -->
@@ -435,6 +447,7 @@
                   </video>
                 </div>
             </div>
+            </div>
             <div class="carousel-buttons">
               <a class="carousel-prev" onclick="carouselSlide('product-carousel', -1)">&#10094;</a>
               <a class="carousel-next" onclick="carouselSlide('product-carousel', 1)">&#10095;</a>
@@ -442,7 +455,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col s12">
+          <!-- Third Sub-section: 3D Environment -->
+          <div id="environment" class="col s12 section">
             <h4>3D Environment</h4>
             <div class="carousel environment-carousel">
               <!-- Image 1 -->
@@ -844,21 +858,29 @@
 
 
   <!-- jQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
   <!-- Materialize - Compiled and minified JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
   <script>
     // Materialize - Initializers
     $(document).ready(function () {
-      $(".scrollspy").scrollSpy()
+      $(".scrollspy").scrollSpy();
+  
       // Initialize collapse button
       $(".button-collapse").sideNav({
         menuWidth: 190, // Default is 240
         edge: "left", // Choose the horizontal origin
-        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      })
-    })
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      });
+  
+      // Initialize dropdown trigger for Projects on large screens
+      $(".dropdown-trigger").dropdown();
+  
+      // Initialize dropdown trigger for Projects on small screens
+      $(".dropdown-trigger-small").dropdown();
+    });
   </script>
   <!-- JavaScript code -->
   <script>
